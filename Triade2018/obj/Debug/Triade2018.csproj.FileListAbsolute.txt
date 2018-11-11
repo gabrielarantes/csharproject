@@ -1,0 +1,14 @@
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.csprojAssemblyReference.cache
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.Form1.resources
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.Properties.Resources.resources
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.csproj.GenerateResource.cache
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.csproj.CoreCompileInputs.cache
+C:\Users\Família\source\repos\Triade2018\Triade2018\bin\Debug\Triade2018.exe.config
+C:\Users\Família\source\repos\Triade2018\Triade2018\bin\Debug\Triade2018.exe
+C:\Users\Família\source\repos\Triade2018\Triade2018\bin\Debug\Triade2018.pdb
+C:\Users\Família\source\repos\Triade2018\Triade2018\bin\Debug\MySql.Data.dll
+C:\Users\Família\source\repos\Triade2018\Triade2018\bin\Debug\Google.Protobuf.dll
+C:\Users\Família\source\repos\Triade2018\Triade2018\bin\Debug\MySql.Data.xml
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.csproj.CopyComplete
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.exe
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.pdb
