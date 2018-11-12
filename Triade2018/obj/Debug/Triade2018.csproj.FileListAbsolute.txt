@@ -12,3 +12,5 @@ C:\Users\Família\source\repos\Triade2018\Triade2018\bin\Debug\MySql.Data.xml
 C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.csproj.CopyComplete
 C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.exe
 C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.pdb
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.View.FormMenu.resources
+C:\Users\Família\source\repos\Triade2018\Triade2018\obj\Debug\Triade2018.View.FormProdS.resources

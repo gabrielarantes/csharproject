@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Triade2018.View;
 
 namespace Triade2018
 {
@@ -26,12 +27,13 @@ namespace Triade2018
         {
             if ((txtLogin.Text == "admin") && (txtSenha.Text == "admin"))
             {
-                //fecha o formulario de login
-                Form1 login = new Form1();
-                login.Hide();
 
                 //abre a tela de opcoes
+                FormMenu menu = new View.FormMenu();
+                menu.Show();
 
+                //esconde o formulario de login
+                this.Hide();
 
             }
             else {
