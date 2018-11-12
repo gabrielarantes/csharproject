@@ -27,5 +27,11 @@ namespace Triade2018.View
             FormProdS prodsS = new FormProdS();
             prodsS.Show();
         }
+
+        private void btProdutosC_Click(object sender, EventArgs e)
+        {
+            FormProdC prodsC = new FormProdC();
+            prodsC.Show();
+        }
     }
 }

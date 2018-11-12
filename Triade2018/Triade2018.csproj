@@ -50,6 +50,7 @@
     <Compile Include="Cadastro.cs" />
     <Compile Include="Control\Conexao.cs" />
     <Compile Include="Model\ProdutoC.cs" />
+    <Compile Include="Model\ProdutoCItem.cs" />
     <Compile Include="Model\ProdutoS.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
@@ -64,6 +65,12 @@
     </Compile>
     <Compile Include="View\Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormProdC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormProdC.Designer.cs">
+      <DependentUpon>FormProdC.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormProdS.cs">
       <SubType>Form</SubType>
@@ -85,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="View\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormProdC.resx">
+      <DependentUpon>FormProdC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormProdS.resx">
       <DependentUpon>FormProdS.cs</DependentUpon>

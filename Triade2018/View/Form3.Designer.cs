@@ -51,6 +51,7 @@
             this.btProdutosC.TabIndex = 1;
             this.btProdutosC.Text = "Produto Composto";
             this.btProdutosC.UseVisualStyleBackColor = true;
+            this.btProdutosC.Click += new System.EventHandler(this.btProdutosC_Click);
             // 
             // button1
             // 
