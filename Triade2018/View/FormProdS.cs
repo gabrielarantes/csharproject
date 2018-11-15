@@ -37,28 +37,36 @@ namespace Triade2018.View
 
         private void btBuscaPS_Click(object sender, EventArgs e)
         {
-            ProdutoS produtoSimples = new ProdutoS();
-            produtoSimples.id = Convert.ToInt32(txtBuscaId.Text);
-
-            if (produtoSimples.BuscarProduto() == true)
+            if (txtBuscaId.Text != "")
             {
+                ProdutoS produtoSimples = new ProdutoS();
+                produtoSimples.id = Convert.ToInt32(txtBuscaId.Text);
 
-                txtId.Text = produtoSimples.id.ToString();
-                txtNome.Text = produtoSimples.nome;
-                txtPrecoC.Text = produtoSimples.precoc;
-                txtPrecoV.Text = produtoSimples.precov;
+                if (produtoSimples.BuscarProduto() == true)
+                {
 
-                txtNome.Enabled = true;
-                txtPrecoC.Enabled = true;
-                txtPrecoV.Enabled = true;
+                    txtId.Text = produtoSimples.id.ToString();
+                    txtNome.Text = produtoSimples.nome;
+                    txtPrecoC.Text = produtoSimples.precoc;
+                    txtPrecoV.Text = produtoSimples.precov;
 
-                btnSalvar.Enabled = true;
-                btnExcluir.Enabled = true;
+                    txtNome.Enabled = true;
+                    txtPrecoC.Enabled = true;
+                    txtPrecoV.Enabled = true;
 
+                    btnSalvar.Enabled = true;
+                    btnExcluir.Enabled = true;
+
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum produto encontrado");
+                }
             }
             else {
-                MessageBox.Show("Nenhum produto encontrado");
+                MessageBox.Show("Digite um id válido!");
             }
+            
             
         }
 

@@ -28,60 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btProdutoS = new System.Windows.Forms.Button();
-            this.btProdutosC = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simplesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compostosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requisiçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btProdutoS
+            // menuStrip1
             // 
-            this.btProdutoS.Location = new System.Drawing.Point(13, 13);
-            this.btProdutoS.Name = "btProdutoS";
-            this.btProdutoS.Size = new System.Drawing.Size(112, 23);
-            this.btProdutoS.TabIndex = 0;
-            this.btProdutoS.Text = "Produto Simples";
-            this.btProdutoS.UseVisualStyleBackColor = true;
-            this.btProdutoS.Click += new System.EventHandler(this.btProdutoS_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.produtosToolStripMenuItem,
+            this.requisiçõesToolStripMenuItem,
+            this.relatóriosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(627, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btProdutosC
+            // produtosToolStripMenuItem
             // 
-            this.btProdutosC.Location = new System.Drawing.Point(13, 43);
-            this.btProdutosC.Name = "btProdutosC";
-            this.btProdutosC.Size = new System.Drawing.Size(112, 23);
-            this.btProdutosC.TabIndex = 1;
-            this.btProdutosC.Text = "Produto Composto";
-            this.btProdutosC.UseVisualStyleBackColor = true;
-            this.btProdutosC.Click += new System.EventHandler(this.btProdutosC_Click);
+            this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.simplesToolStripMenuItem,
+            this.compostosToolStripMenuItem});
+            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.produtosToolStripMenuItem.Text = "Produtos";
             // 
-            // button1
+            // simplesToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(13, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.simplesToolStripMenuItem.Name = "simplesToolStripMenuItem";
+            this.simplesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.simplesToolStripMenuItem.Text = "Simples";
+            this.simplesToolStripMenuItem.Click += new System.EventHandler(this.simplesToolStripMenuItem_Click_1);
+            // 
+            // compostosToolStripMenuItem
+            // 
+            this.compostosToolStripMenuItem.Name = "compostosToolStripMenuItem";
+            this.compostosToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.compostosToolStripMenuItem.Text = "Compostos";
+            this.compostosToolStripMenuItem.Click += new System.EventHandler(this.compostosToolStripMenuItem_Click_1);
+            // 
+            // requisiçõesToolStripMenuItem
+            // 
+            this.requisiçõesToolStripMenuItem.Name = "requisiçõesToolStripMenuItem";
+            this.requisiçõesToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.requisiçõesToolStripMenuItem.Text = "Requisições";
+            // 
+            // relatóriosToolStripMenuItem
+            // 
+            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 317);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btProdutosC);
-            this.Controls.Add(this.btProdutoS);
+            this.ClientSize = new System.Drawing.Size(627, 542);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tríade - Menu Inicial";
             this.Load += new System.EventHandler(this.FormMenu_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btProdutoS;
-        private System.Windows.Forms.Button btProdutosC;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem simplesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compostosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requisiçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
     }
 }

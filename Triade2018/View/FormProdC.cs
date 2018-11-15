@@ -58,34 +58,42 @@ namespace Triade2018.View
         private void btBuscaPS_Click(object sender, EventArgs e)
         {
             ProdutoC produtoC = new ProdutoC();
-            produtoC.id = Convert.ToInt32(txtBuscaId.Text);
-
-            if (produtoC.BuscarProduto() == true)
+            if (txtBuscaId.Text != "")
             {
+                produtoC.id = Convert.ToInt32(txtBuscaId.Text);
 
-                txtId.Text = produtoC.id.ToString();
-                txtNome.Text = produtoC.nome;
-                txtPrecoV.Text = produtoC.precov;
+                if (produtoC.BuscarProduto() == true)
+                {
 
-                txtNome.Enabled = true;
-                txtPrecoV.Enabled = true;
+                    txtId.Text = produtoC.id.ToString();
+                    txtNome.Text = produtoC.nome;
+                    txtPrecoV.Text = produtoC.precov;
 
-                btnSalvar.Enabled = true;
-                btnExcluir.Enabled = true;
+                    txtNome.Enabled = true;
+                    txtPrecoV.Enabled = true;
 
-                //habilitando os campos de itens
-                txtProduto.Enabled = true;
-                txtQuantidade.Enabled = true;
-                btnAdicionar.Enabled = true;
+                    btnSalvar.Enabled = true;
+                    btnExcluir.Enabled = true;
 
-                //exibindo os itens desse produto composto
-                produtoC.buscaItens(txtId.Text);
+                    //habilitando os campos de itens
+                    txtProduto.Enabled = true;
+                    txtQuantidade.Enabled = true;
+                    btnAdicionar.Enabled = true;
+                    txtBuscarProduto.Enabled = true;
 
+                    //exibindo os itens desse produto composto
+                    produtoC.buscaItens(Convert.ToInt32(txtId.Text));
+
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum produto encontrado");
+                }
             }
-            else
-            {
-                MessageBox.Show("Nenhum produto encontrado");
+            else {
+                MessageBox.Show("Digite um id válido!");
             }
+            
         }
 
         private void txtPrecoC_TextChanged(object sender, EventArgs e)
@@ -95,25 +103,32 @@ namespace Triade2018.View
 
         private void txtBuscarProduto_Click(object sender, EventArgs e)
         {
-            ProdutoS produtoSimples = new ProdutoS();
-            produtoSimples.id = Convert.ToInt32(txtProduto.Text);
-
-            if (produtoSimples.BuscarProduto() == true)
+            if (txtProduto.Text != "")
             {
+                ProdutoS produtoSimples = new ProdutoS();
+                produtoSimples.id = Convert.ToInt32(txtProduto.Text);
 
-                txtProduto.Text = produtoSimples.id.ToString();
-                txtNomeProduto.Text = produtoSimples.nome;
-                txtProdutoPrecoCusto.Text = produtoSimples.precoc;
-                txtProdutoPrecoVenda.Text = produtoSimples.precov;
+                if (produtoSimples.BuscarProduto() == true)
+                {
 
-                txtQuantidade.Enabled = true;
-                btnAdicionar.Enabled = true;
-                btnRemover.Enabled = true;
+                    txtProduto.Text = produtoSimples.id.ToString();
+                    txtNomeProduto.Text = produtoSimples.nome;
+                    txtProdutoPrecoCusto.Text = produtoSimples.precoc;
+                    txtProdutoPrecoVenda.Text = produtoSimples.precov;
+
+                    txtQuantidade.Enabled = true;
+                    btnAdicionar.Enabled = true;
+                    btnRemover.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum produto encontrado");
+                }
             }
-            else
-            {
-                MessageBox.Show("Nenhum produto encontrado");
+            else {
+                MessageBox.Show("Digite um id de Produto válido!");
             }
+            
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -131,6 +146,20 @@ namespace Triade2018.View
                 produto_item.quantidade = Convert.ToInt32(txtQuantidade.Text);
 
                 produto_item.adicionarItem();
+
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente excluir este produto?\nEssa operação não poderá ser desfeita!", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+
+                ProdutoC produtoC = new ProdutoC();
+                produtoC.excluir(txtId.Text);
+                this.limpaCampos();
+
+                btnSalvar.Enabled = false;
 
             }
         }

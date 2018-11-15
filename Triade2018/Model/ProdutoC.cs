@@ -22,6 +22,7 @@ namespace Triade2018.View
         public string nome;
         public string precov;
         public string mensagem;
+        public Array listaProdutos;
 
         public Boolean validaCampos()
         {
@@ -144,9 +145,21 @@ namespace Triade2018.View
 
         }
 
-        public void buscaItens(int id) {
+        public void buscaItens(int idPc) {
 
-            cmd.CommandText = "SELECT ps.PS_NOME, ps.PS_PRECOC, ps.PS_PRECOV, pi.PI_QUANTIDADE, (pi.PI_QUANTIDADE * ps.PS_PRECOV) AS TOTAL_CUSTO_ITEM FROM produtos_simples ps, produtos_compostos_itens pi WHERE ps.PS_ID = pi.PI_PRODUTO_SIMPLES AND pi.PI_PRODUTO_COMPOSTO = @id";
+            //conexao com o banco
+            cmd.Connection = conexao.conectar();
+
+            cmd.CommandText = "SELECT ps.PS_NOME, ps.PS_PRECOC, ps.PS_PRECOV, pi.PI_QUANTIDADE, (pi.PI_QUANTIDADE * ps.PS_PRECOV) AS TOTAL_CUSTO_ITEM FROM produtos_simples ps, produtos_compostos_itens pi WHERE ps.PS_ID = pi.PI_PRODUTO_SIMPLES AND pi.PI_PRODUTO_COMPOSTO = @idProd";
+            cmd.Parameters.AddWithValue("@idProd", MySqlDbType.Int32).Value = idPc;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            DataTable dtListaProdutos = new DataTable();
+
+            da.Fill(dtListaProdutos);
+
+            //this.listaProdutos = da; 
 
 
         }

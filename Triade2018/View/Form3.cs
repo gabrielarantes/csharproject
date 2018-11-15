@@ -17,21 +17,48 @@ namespace Triade2018.View
             InitializeComponent();
         }
 
+        public Form1 form1 = new Form1();
+        public FormProdS formProdS = new FormProdS();
+        public FormProdC formProdC = new FormProdC();
+        //public FormProdC formProdC = null;
+
         private void FormMenu_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btProdutoS_Click(object sender, EventArgs e)
+        private void simplesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FormProdS prodsS = new FormProdS();
-            prodsS.Show();
+            this.closeForms();
+            this.formProdS.TopLevel = false;
+            this.formProdS.Visible = true;
+            this.Controls.Add(this.formProdS);
+            //this.ArrangeFormSize(this.formProdS);
+            this.formProdS.Location = new Point(0, 25);
         }
 
-        private void btProdutosC_Click(object sender, EventArgs e)
+        private void FormMenu_SizeChanged() {
+            //this.ArrangeFormSize();
+        }
+
+        private void closeForms() {
+            this.formProdS.Hide();
+            this.formProdC.Hide();
+        }
+
+        private void ArrangeFormSize() {
+            //this.formProdS.Location = new Point(0,25);
+            //this.formProdC.Location = new Point(0, 25);
+        }
+
+        private void compostosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FormProdC prodsC = new FormProdC();
-            prodsC.Show();
+            this.closeForms();
+            this.formProdC.TopLevel = false;
+            this.formProdC.Visible = true;
+            this.Controls.Add(this.formProdC);
+            //this.ArrangeFormSize(this.formProdC);
+            this.formProdC.Location = new Point(0, 25);
         }
     }
 }
