@@ -40,5 +40,10 @@ namespace Triade2018
                 MessageBox.Show("Login inválido!","Erro");
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,6 +36,7 @@
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,7 @@
     <Compile Include="Model\ProdutoC.cs" />
     <Compile Include="Model\ProdutoCItem.cs" />
     <Compile Include="Model\ProdutoS.cs" />
+    <Compile Include="Model\Requisicao.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +80,12 @@
     <Compile Include="View\FormProdS.Designer.cs">
       <DependentUpon>FormProdS.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormRequisicoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormRequisicoes.Designer.cs">
+      <DependentUpon>FormRequisicoes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormProdS.resx">
       <DependentUpon>FormProdS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormRequisicoes.resx">
+      <DependentUpon>FormRequisicoes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -77,6 +77,7 @@
             this.requisiçõesToolStripMenuItem.Name = "requisiçõesToolStripMenuItem";
             this.requisiçõesToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.requisiçõesToolStripMenuItem.Text = "Requisições";
+            this.requisiçõesToolStripMenuItem.Click += new System.EventHandler(this.requisiçõesToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -93,6 +94,8 @@
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tríade - Menu Inicial";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMenu_FormClosed);
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
