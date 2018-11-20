@@ -74,7 +74,7 @@
             this.btBuscaPS});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(498, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(596, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -134,7 +134,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(337, 388);
+            this.btnExcluir.Location = new System.Drawing.Point(428, 388);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 18;
@@ -145,7 +145,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(418, 388);
+            this.btnSalvar.Location = new System.Drawing.Point(509, 388);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 17;
@@ -193,7 +193,7 @@
             this.dgProdutos.Enabled = false;
             this.dgProdutos.Location = new System.Drawing.Point(6, 127);
             this.dgProdutos.Name = "dgProdutos";
-            this.dgProdutos.Size = new System.Drawing.Size(466, 132);
+            this.dgProdutos.Size = new System.Drawing.Size(557, 132);
             this.dgProdutos.TabIndex = 21;
             // 
             // gbProdutos
@@ -214,7 +214,7 @@
             this.gbProdutos.Controls.Add(this.dgProdutos);
             this.gbProdutos.Location = new System.Drawing.Point(15, 117);
             this.gbProdutos.Name = "gbProdutos";
-            this.gbProdutos.Size = new System.Drawing.Size(478, 265);
+            this.gbProdutos.Size = new System.Drawing.Size(569, 265);
             this.gbProdutos.TabIndex = 22;
             this.gbProdutos.TabStop = false;
             this.gbProdutos.Text = "Itens";
@@ -291,6 +291,7 @@
             this.btnRemover.TabIndex = 26;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAdicionar
             // 
@@ -350,7 +351,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 423);
+            this.ClientSize = new System.Drawing.Size(596, 423);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.gbProdutos);
             this.Controls.Add(this.txtId);

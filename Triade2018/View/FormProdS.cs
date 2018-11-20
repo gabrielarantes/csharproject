@@ -81,8 +81,8 @@ namespace Triade2018.View
 
             //produtoS.id = Convert.ToInt32(txtId.Text);
             produtoS.nome = txtNome.Text;
-            produtoS.precoc = txtPrecoC.Text.Replace(".", "").Replace(",", ".");
-            produtoS.precov = txtPrecoV.Text.Replace(".", "").Replace(",", ".");
+            produtoS.precoc = txtPrecoC.Text.Replace(",", ".");
+            produtoS.precov = txtPrecoV.Text.Replace(",", ".");
 
             if (produtoS.validaCampos() == true) {
                 produtoS.salvar(txtId.Text);

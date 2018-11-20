@@ -17,6 +17,9 @@ namespace Triade2018.Model
         MySqlCommand cmd = new MySqlCommand();
 
         public int id;
+        //public string dia;
+        //public string mes;
+        //public string ano;
         public string data;
         public string nome;
         public string precov;
@@ -29,7 +32,7 @@ namespace Triade2018.Model
 
             if (this.nome == "")
             {
-                MessageBox.Show("Nome inválido");
+                MessageBox.Show("Nome de Funcionário inválido");
                 return false;
             }
 
@@ -47,7 +50,7 @@ namespace Triade2018.Model
 
             if (id_bd == "")
             {
-                cmd.CommandText = "INSERT INTO produtos_compostos (PC_NOME,PC_PRECO_VENDA, PC_DATA_CADASTRO) VALUES (@nome,@precov, NOW() ) ";
+                cmd.CommandText = "INSERT INTO requisicoes (RE_DATA, RE_RESPONSAVEL, RE_DATA_CADASTRO) VALUES (@data,@nome, NOW() ) ";
                 this.mensagem = "Cadastrado com sucesso!";
             }
             else
@@ -58,6 +61,7 @@ namespace Triade2018.Model
             }
 
             cmd.Parameters.AddWithValue("@nome", this.nome);
+            cmd.Parameters.AddWithValue("@data", this.data);
 
             try
             {
@@ -72,7 +76,7 @@ namespace Triade2018.Model
             }
             catch (MySqlException e)
             {
-                MessageBox.Show("Erro ao tentar se conectar");
+                MessageBox.Show("Erro ao tentar se conectar" + e);
             }
 
         }
@@ -103,24 +107,10 @@ namespace Triade2018.Model
         }
 
 
-        public Boolean BuscarProduto()
+        public Boolean Buscar()
         {
 
-            /*JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-            string json = @"{ ""nome"" : ""Jose Carlos"", ""sobrenome"" : ""Macoratti"", ""email"": ""macoratti@yahoo.com"" }";
-
-            dynamic resultado = serializer.DeserializeObject(json);
-
-            foreach (KeyValuePair<string, object> entry in resultado)
-            {
-                var key = entry.Key;
-                var value = entry.Value as string;
-                MessageBox.Show(String.Format("{0} : {1}", key, value));
-            }
-
-            return false;*/
-
-            cmd.CommandText = "SELECT * FROM  produtos_compostos WHERE PC_ID = @id ";
+            cmd.CommandText = "SELECT * FROM  requisicoes WHERE RE_ID = @id ";
             cmd.Parameters.AddWithValue("@id", MySqlDbType.Int32).Value = this.id;
 
             try
@@ -139,8 +129,8 @@ namespace Triade2018.Model
 
                     dr.Read();
 
-                    this.nome = dr["PC_NOME"].ToString();
-                    this.precov = dr["PC_PRECO_VENDA"].ToString();
+                    this.nome = dr["RE_RESPONSAVEL"].ToString();
+                    this.data = dr["RE_DATA"].ToString();
 
                     //desconectar
                     conexao.desconectar();
@@ -159,25 +149,7 @@ namespace Triade2018.Model
 
         }
 
-        public void buscaItens(int idPc)
-        {
-
-            //conexao com o banco
-            cmd.Connection = conexao.conectar();
-
-            cmd.CommandText = "SELECT ps.PS_NOME, ps.PS_PRECOC, ps.PS_PRECOV, pi.PI_QUANTIDADE, (pi.PI_QUANTIDADE * ps.PS_PRECOV) AS TOTAL_CUSTO_ITEM FROM produtos_simples ps, produtos_compostos_itens pi WHERE ps.PS_ID = pi.PI_PRODUTO_SIMPLES AND pi.PI_PRODUTO_COMPOSTO = @idProd";
-            cmd.Parameters.AddWithValue("@idProd", MySqlDbType.Int32).Value = idPc;
-
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-            DataTable dtListaProdutos = new DataTable();
-
-            da.Fill(dtListaProdutos);
-
-            //this.listaProdutos = da; 
-
-
-        }
+        
     }
 
 }

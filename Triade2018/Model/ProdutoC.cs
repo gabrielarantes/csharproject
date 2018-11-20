@@ -23,6 +23,7 @@ namespace Triade2018.View
         public string precov;
         public string mensagem;
         public Array listaProdutos;
+        public DataTable dt = null;
 
         public Boolean validaCampos()
         {
@@ -138,14 +139,14 @@ namespace Triade2018.View
             }
             catch (MySqlException e)
             {
-
+                MessageBox.Show("Ocorreu algum problema!\nTente novamente");
             }
 
             return false;
 
         }
 
-        public void buscaItens(int idPc) {
+        public DataTable buscaItens(int idPc) {
 
             //conexao com o banco
             cmd.Connection = conexao.conectar();
@@ -155,9 +156,9 @@ namespace Triade2018.View
 
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
-            DataTable dtListaProdutos = new DataTable();
+            this.dt = new DataTable();
 
-            da.Fill(dtListaProdutos);
+            return dt;
 
             //this.listaProdutos = da; 
 

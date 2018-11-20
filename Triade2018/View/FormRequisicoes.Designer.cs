@@ -35,7 +35,6 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtBuscaId = new System.Windows.Forms.ToolStripTextBox();
             this.btBusca = new System.Windows.Forms.ToolStripButton();
-            this.txtData = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFuncionario = new System.Windows.Forms.TextBox();
@@ -48,15 +47,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscarItem = new System.Windows.Forms.Button();
             this.txtProduto = new System.Windows.Forms.TextBox();
-            this.txtIdProd = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblPrecoVenda = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblSubTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtData = new System.Windows.Forms.TextBox();
+            this.txtPrecoVenda = new System.Windows.Forms.TextBox();
+            this.txtSubTotal = new System.Windows.Forms.TextBox();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -111,21 +114,12 @@
             this.btBusca.Name = "btBusca";
             this.btBusca.Size = new System.Drawing.Size(23, 22);
             this.btBusca.Text = "Buscar";
-            // 
-            // txtData
-            // 
-            this.txtData.Enabled = false;
-            this.txtData.Location = new System.Drawing.Point(44, 19);
-            this.txtData.Mask = "00/00/0000";
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(65, 20);
-            this.txtData.TabIndex = 3;
-            this.txtData.ValidatingType = typeof(System.DateTime);
+            this.btBusca.Click += new System.EventHandler(this.btBusca_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 22);
+            this.label1.Location = new System.Drawing.Point(7, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 4;
@@ -134,7 +128,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 55);
+            this.label2.Location = new System.Drawing.Point(7, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 13);
             this.label2.TabIndex = 5;
@@ -143,25 +137,26 @@
             // txtFuncionario
             // 
             this.txtFuncionario.Enabled = false;
-            this.txtFuncionario.Location = new System.Drawing.Point(144, 52);
+            this.txtFuncionario.Location = new System.Drawing.Point(143, 72);
             this.txtFuncionario.Name = "txtFuncionario";
             this.txtFuncionario.Size = new System.Drawing.Size(207, 20);
-            this.txtFuncionario.TabIndex = 6;
+            this.txtFuncionario.TabIndex = 1;
             // 
             // btnSalvar
             // 
             this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(489, 342);
+            this.btnSalvar.Location = new System.Drawing.Point(494, 408);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(408, 342);
+            this.btnExcluir.Location = new System.Drawing.Point(413, 408);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 8;
@@ -171,12 +166,14 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtData);
+            this.groupBox1.Controls.Add(this.txtId);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtFuncionario);
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(357, 84);
+            this.groupBox1.Size = new System.Drawing.Size(357, 102);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados da Requisição";
@@ -192,6 +189,7 @@
             // 
             // txtProd
             // 
+            this.txtProd.Enabled = false;
             this.txtProd.Location = new System.Drawing.Point(60, 22);
             this.txtProd.Name = "txtProd";
             this.txtProd.Size = new System.Drawing.Size(48, 20);
@@ -221,6 +219,7 @@
             // 
             // btnBuscarItem
             // 
+            this.btnBuscarItem.Enabled = false;
             this.btnBuscarItem.Location = new System.Drawing.Point(281, 19);
             this.btnBuscarItem.Name = "btnBuscarItem";
             this.btnBuscarItem.Size = new System.Drawing.Size(69, 23);
@@ -237,15 +236,6 @@
             this.txtProduto.Size = new System.Drawing.Size(265, 20);
             this.txtProduto.TabIndex = 7;
             // 
-            // txtIdProd
-            // 
-            this.txtIdProd.Enabled = false;
-            this.txtIdProd.Location = new System.Drawing.Point(356, 21);
-            this.txtIdProd.Name = "txtIdProd";
-            this.txtIdProd.Size = new System.Drawing.Size(22, 20);
-            this.txtIdProd.TabIndex = 12;
-            this.txtIdProd.Visible = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -257,34 +247,45 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnAdicionar);
+            this.groupBox2.Controls.Add(this.btnRemover);
+            this.groupBox2.Controls.Add(this.txtSubTotal);
+            this.groupBox2.Controls.Add(this.txtPrecoVenda);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.lblSubTotal);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.lblPrecoVenda);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtIdProd);
             this.groupBox2.Controls.Add(this.txtProduto);
             this.groupBox2.Controls.Add(this.btnBuscarItem);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.cmbTipo);
             this.groupBox2.Controls.Add(this.txtProd);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(13, 119);
+            this.groupBox2.Location = new System.Drawing.Point(12, 136);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(551, 217);
+            this.groupBox2.Size = new System.Drawing.Size(557, 266);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Itens";
             // 
-            // textBox1
+            // dataGridView1
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(284, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(66, 20);
-            this.textBox1.TabIndex = 14;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 97);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(535, 163);
+            this.dataGridView1.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(443, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Subtotal";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -295,46 +296,80 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Preço de Venda";
             // 
-            // lblPrecoVenda
+            // textBox1
             // 
-            this.lblPrecoVenda.AutoSize = true;
-            this.lblPrecoVenda.Location = new System.Drawing.Point(356, 73);
-            this.lblPrecoVenda.Name = "lblPrecoVenda";
-            this.lblPrecoVenda.Size = new System.Drawing.Size(0, 13);
-            this.lblPrecoVenda.TabIndex = 16;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(284, 70);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(66, 20);
+            this.textBox1.TabIndex = 14;
             // 
-            // label7
+            // label8
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(499, 55);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Subtotal";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Id:";
             // 
-            // lblSubTotal
+            // txtId
             // 
-            this.lblSubTotal.AutoSize = true;
-            this.lblSubTotal.Location = new System.Drawing.Point(545, 73);
-            this.lblSubTotal.Name = "lblSubTotal";
-            this.lblSubTotal.Size = new System.Drawing.Size(0, 13);
-            this.lblSubTotal.TabIndex = 18;
-            this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(46, 19);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(22, 20);
+            this.txtId.TabIndex = 20;
             // 
-            // dataGridView1
+            // txtData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 97);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(535, 96);
-            this.dataGridView1.TabIndex = 19;
+            this.txtData.Enabled = false;
+            this.txtData.Location = new System.Drawing.Point(46, 45);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(81, 20);
+            this.txtData.TabIndex = 21;
+            // 
+            // txtPrecoVenda
+            // 
+            this.txtPrecoVenda.Enabled = false;
+            this.txtPrecoVenda.Location = new System.Drawing.Point(356, 70);
+            this.txtPrecoVenda.Name = "txtPrecoVenda";
+            this.txtPrecoVenda.Size = new System.Drawing.Size(81, 20);
+            this.txtPrecoVenda.TabIndex = 20;
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.Enabled = false;
+            this.txtSubTotal.Location = new System.Drawing.Point(446, 70);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.Size = new System.Drawing.Size(99, 20);
+            this.txtSubTotal.TabIndex = 21;
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Enabled = false;
+            this.btnRemover.Location = new System.Drawing.Point(476, 19);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(69, 23);
+            this.btnRemover.TabIndex = 22;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            // 
+            // btnAdicionar
+            // 
+            this.btnAdicionar.Enabled = false;
+            this.btnAdicionar.Location = new System.Drawing.Point(401, 19);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(69, 23);
+            this.btnAdicionar.TabIndex = 23;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
             // 
             // FormRequisicoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 377);
+            this.ClientSize = new System.Drawing.Size(576, 435);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExcluir);
@@ -363,7 +398,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox txtBuscaId;
         private System.Windows.Forms.ToolStripButton btBusca;
-        private System.Windows.Forms.MaskedTextBox txtData;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFuncionario;
@@ -376,14 +410,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscarItem;
         private System.Windows.Forms.TextBox txtProduto;
-        private System.Windows.Forms.TextBox txtIdProd;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblPrecoVenda;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.TextBox txtSubTotal;
+        private System.Windows.Forms.TextBox txtPrecoVenda;
+        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnRemover;
     }
 }

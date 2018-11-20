@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace Triade2018.View
 {
     public partial class FormProdC : Form
     {
+        private DataTable dt;
+
         public FormProdC()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace Triade2018.View
             ProdutoC produtoC = new ProdutoC();
 
             produtoC.nome = txtNome.Text;
-            produtoC.precov = txtPrecoV.Text.Replace(".", "").Replace(",", ".");
+            produtoC.precov = txtPrecoV.Text.Replace(",", ".");
 
             if (produtoC.validaCampos() == true)
             {
@@ -82,7 +85,10 @@ namespace Triade2018.View
                     txtBuscarProduto.Enabled = true;
 
                     //exibindo os itens desse produto composto
-                    produtoC.buscaItens(Convert.ToInt32(txtId.Text));
+                    //produtoC.buscaItens(Convert.ToInt32(txtId.Text));
+
+                    this.buscaItens(Convert.ToInt32(txtId.Text));
+                    //dgProdutos.DataSource = produtoC.dt;
 
                 }
                 else
@@ -147,6 +153,8 @@ namespace Triade2018.View
 
                 produto_item.adicionarItem();
 
+                this.buscaItens(Convert.ToInt32(txtId.Text));
+
             }
         }
 
@@ -162,6 +170,52 @@ namespace Triade2018.View
                 btnSalvar.Enabled = false;
 
             }
+        }
+
+        private void buscaItens(int idPC) {
+
+            Conexao conexao = new Conexao();
+            MySqlCommand cmd = new MySqlCommand();
+
+            //conexao com o banco
+            cmd.Connection = conexao.conectar();
+
+            cmd.CommandText = "SELECT ps.PS_NOME as Produto, ps.PS_PRECOC as 'Preco Custo', ps.PS_PRECOV as 'Preco Venda', pi.PI_QUANTIDADE as Quantidade, (pi.PI_QUANTIDADE * ps.PS_PRECOV) AS 'Total Item' FROM produtos_simples ps, produtos_compostos_itens pi WHERE ps.PS_ID = pi.PI_PRODUTO_SIMPLES AND pi.PI_PRODUTO_COMPOSTO = @idProd";
+            cmd.Parameters.AddWithValue("@idProd", MySqlDbType.Int32).Value = idPC;
+
+            //define o tipo do comando 
+            //cmd.CommandType = CommandType.Text;
+
+            //cria um dataadapter
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            //cria um objeto datatable
+            DataTable produtos_itens = new DataTable();
+
+            //preenche o datatable via dataadapter
+            da.Fill(produtos_itens);
+
+            //atribui o datatable ao datagridview para exibir o resultado
+            dgProdutos.DataSource = produtos_itens;
+            dgProdutos.Enabled = true;
+
+            float preco_total = 0;
+
+            foreach (DataGridViewRow linha in dgProdutos.Rows)
+            {
+                if ( linha.Cells[4].Value != null ) {
+                    preco_total = preco_total + (float.Parse( linha.Cells[4].Value.ToString() ) );
+                }                
+
+            }
+
+            lblTotal.Text = "Preço de Custo: R$" + preco_total;
+
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
