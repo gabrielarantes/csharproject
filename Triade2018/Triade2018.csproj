@@ -54,6 +54,7 @@
     <Compile Include="Model\ProdutoCItem.cs" />
     <Compile Include="Model\ProdutoS.cs" />
     <Compile Include="Model\Requisicao.cs" />
+    <Compile Include="Model\RequisicaoItem.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
