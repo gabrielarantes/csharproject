@@ -63,14 +63,14 @@
             // simplesToolStripMenuItem
             // 
             this.simplesToolStripMenuItem.Name = "simplesToolStripMenuItem";
-            this.simplesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simplesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.simplesToolStripMenuItem.Text = "Simples";
             this.simplesToolStripMenuItem.Click += new System.EventHandler(this.simplesToolStripMenuItem_Click_1);
             // 
             // compostosToolStripMenuItem
             // 
             this.compostosToolStripMenuItem.Name = "compostosToolStripMenuItem";
-            this.compostosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compostosToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.compostosToolStripMenuItem.Text = "Compostos";
             this.compostosToolStripMenuItem.Click += new System.EventHandler(this.compostosToolStripMenuItem_Click_1);
             // 

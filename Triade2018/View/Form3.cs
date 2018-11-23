@@ -21,6 +21,7 @@ namespace Triade2018.View
         public FormProdS formProdS = new FormProdS();
         public FormProdC formProdC = new FormProdC();
         public FormRequisicoes formReq = new FormRequisicoes();
+        public FormRelReq formRelReq = new FormRelReq();
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
@@ -45,6 +46,7 @@ namespace Triade2018.View
             this.formProdS.Hide();
             this.formProdC.Hide();
             this.formReq.Hide();
+            this.formRelReq.Hide();
         }
 
         private void ArrangeFormSize() {
@@ -90,11 +92,11 @@ namespace Triade2018.View
         private void relatórioDeRequisiçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.closeForms();
-            this.formReq.TopLevel = false;
-            this.formReq.Visible = true;
-            this.Controls.Add(this.formReq);
+            this.formRelReq.TopLevel = false;
+            this.formRelReq.Visible = true;
+            this.Controls.Add(this.formRelReq);
             //this.ArrangeFormSize(this.formProdS);
-            this.formReq.Location = new Point(0, 25);
+            this.formRelReq.Location = new Point(0, 25);
         }
     }
 }

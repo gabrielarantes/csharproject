@@ -154,7 +154,7 @@ namespace Triade2018.View
 
             var dia = date[0];
             var mes = date[1];
-            var ano = date[1];
+            var ano = date[2];
 
             requisicao.data = ano + '-' + mes + '-' + dia;
 
