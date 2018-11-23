@@ -167,7 +167,7 @@ namespace Triade2018.View
                 produtoC.excluir(txtId.Text);
                 this.limpaCampos();
 
-                btnSalvar.Enabled = false;
+                //btnSalvar.Enabled = false;
 
             }
         }
@@ -215,6 +215,14 @@ namespace Triade2018.View
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
+
+            ProdutoCItem produtoc_item = new ProdutoCItem();
+            produtoc_item.id_produto_composto = Convert.ToInt32(txtId.Text);
+            produtoc_item.id_produto_simples = Convert.ToInt32(txtProduto.Text);
+
+            produtoc_item.remover();
+
+            this.buscaItens(Convert.ToInt32(txtId.Text));
 
         }
     }

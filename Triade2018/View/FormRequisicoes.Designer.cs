@@ -60,6 +60,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -162,6 +163,7 @@
             this.btnExcluir.TabIndex = 8;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // groupBox1
             // 
@@ -193,6 +195,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(22, 20);
             this.txtId.TabIndex = 20;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // label8
             // 
@@ -368,18 +371,28 @@
             this.txtQuantidade.TabIndex = 14;
             this.txtQuantidade.TextChanged += new System.EventHandler(this.txtQuantidade_TextChanged);
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(12, 409);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(110, 13);
+            this.lblTotal.TabIndex = 11;
+            this.lblTotal.Text = "Preço Total de Custo:";
+            // 
             // FormRequisicoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 435);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormRequisicoes";
-            this.Text = "FormRequisicoes";
+            this.Text = "Requisicões";
             this.Load += new System.EventHandler(this.FormRequisicoes_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -426,5 +439,6 @@
         private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

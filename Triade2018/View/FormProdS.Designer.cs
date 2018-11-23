@@ -208,7 +208,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormProdS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormProdS";
+            this.Text = "Produtos Simples";
             this.Load += new System.EventHandler(this.FormProdS_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

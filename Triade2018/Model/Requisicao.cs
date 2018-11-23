@@ -55,7 +55,7 @@ namespace Triade2018.Model
             }
             else
             {
-                cmd.CommandText = "UPDATE produtos_compostos SET PC_NOME = @nome, PC_PRECO_VENDA = @precov WHERE PC_ID = @id ";
+                cmd.CommandText = "UPDATE requisicoes SET RE_RESPONSAVEL = @nome, RE_DATA = @data WHERE RE_ID = @id ";
                 cmd.Parameters.AddWithValue("@id", id_bd);
                 this.mensagem = "Atualizado com sucesso!";
             }
@@ -81,11 +81,11 @@ namespace Triade2018.Model
 
         }
 
-        public void excluir(string id_bd)
+        public void excluir()
         {
 
-            cmd.CommandText = "DELETE FROM produtos_compostos WHERE PC_ID = @id ";
-            cmd.Parameters.AddWithValue("@id", id_bd);
+            cmd.CommandText = "DELETE FROM requisicoes WHERE RE_ID = @id ";
+            cmd.Parameters.AddWithValue("@id", this.id);
             this.mensagem = "Excluído com sucesso!";
 
             try

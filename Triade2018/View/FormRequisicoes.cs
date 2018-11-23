@@ -215,7 +215,7 @@ namespace Triade2018.View
                 }
                 else
                 {
-                    MessageBox.Show("Nenhum produto encontrado");
+                    MessageBox.Show("Nenhuma requisição encontrada");
                 }
             }
             else
@@ -263,7 +263,7 @@ namespace Triade2018.View
 
             }
 
-            //lblTotal.Text = "Preço de Custo: R$" + preco_total;
+            lblTotal.Text = "Preço de Custo: R$" + preco_total;
 
         }
 
@@ -324,7 +324,44 @@ namespace Triade2018.View
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            this.buscaItens(Convert.ToInt32(txtBuscaId.Text));
+            if (MessageBox.Show("Deseja realmente excluir este item?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+
+                RequisicaoItem requsicao_item = new RequisicaoItem();
+                requsicao_item.id_requisicao = txtId.Text;
+                requsicao_item.id_produto = txtProd.Text;
+                if (cmbTipo.Text == "Simples")
+                {
+                    requsicao_item.tipo = "1";
+                }
+                else {
+                    requsicao_item.tipo = "2";
+                }
+                
+                requsicao_item.excluir();
+                this.buscaItens(Convert.ToInt32(txtBuscaId.Text));
+
+            }
+            
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente excluir esta requisição?\nEssa operação não poderá ser desfeita!", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                if (txtId.Text != "")
+                {
+                    Requisicao requisicao = new Requisicao();
+                    requisicao.id = Convert.ToInt32(txtId.Text);
+                    requisicao.excluir();
+                }
+
+            }
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -81,5 +81,20 @@ namespace Triade2018.View
             //this.ArrangeFormSize(this.formProdS);
             this.formReq.Location = new Point(0, 25);
         }
+
+        private void rToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void relatórioDeRequisiçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.closeForms();
+            this.formReq.TopLevel = false;
+            this.formReq.Visible = true;
+            this.Controls.Add(this.formReq);
+            //this.ArrangeFormSize(this.formProdS);
+            this.formReq.Location = new Point(0, 25);
+        }
     }
 }

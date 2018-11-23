@@ -114,6 +114,10 @@ namespace Triade2018.View
                 this.limpaCampos();
 
                 btnSalvar.Enabled = false;
+                txtId.Enabled = false;
+                txtNome.Enabled = false;
+                txtPrecoC.Enabled = false;
+                txtPrecoV.Enabled = false;
 
             }
             

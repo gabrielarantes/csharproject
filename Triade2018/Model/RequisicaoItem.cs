@@ -97,5 +97,33 @@ namespace Triade2018.Model
 
         }
 
+        public void excluir()
+        {
+
+            cmd.CommandText = "DELETE FROM requisicoes_itens WHERE RI_REQUISICAO = @requisicao AND RI_PRODUTO = @id_produto AND RI_TIPO = @tipo ";
+            cmd.Parameters.AddWithValue("@id_produto", this.id_produto);
+            cmd.Parameters.AddWithValue("@tipo", this.tipo);
+            cmd.Parameters.AddWithValue("@requisicao", this.id_requisicao);
+            this.mensagem = "Excluído com sucesso!";
+
+            try
+            {
+                cmd.Connection = conexao.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                conexao.desconectar();
+
+                MessageBox.Show(this.mensagem);
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Erro ao tentar se conectar" + e);
+            }
+
+        }
+
+
     }
 }

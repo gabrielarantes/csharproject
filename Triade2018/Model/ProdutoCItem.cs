@@ -100,7 +100,26 @@ namespace Triade2018.Model
         }
 
         public void remover() {
+            cmd.CommandText = "DELETE FROM produtos_compostos_itens WHERE PI_PRODUTO_COMPOSTO = @id_produto AND PI_PRODUTO_SIMPLES = @id_produto_simples ";
+            cmd.Parameters.AddWithValue("@id_produto", this.id_produto_composto);
+            cmd.Parameters.AddWithValue("@id_produto_simples", this.id_produto_simples);
+            this.mensagem = "Excluído com sucesso!";
 
+            try
+            {
+                cmd.Connection = conexao.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                conexao.desconectar();
+
+                MessageBox.Show(this.mensagem);
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Erro ao tentar se conectar" + e);
+            }
         }
 
 
